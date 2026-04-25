@@ -1,6 +1,7 @@
 import unittest
 from cart import ShoppingCart
 
+
 class TestShoppingCart(unittest.TestCase):
 
     def setUp(self):
@@ -76,6 +77,7 @@ class TestShoppingCart(unittest.TestCase):
         self.cart.clear()
         self.assertIsNotNone(self.cart._discount)  # None olmasi lazimdi aslinda
 
+
 # tdd kismi - once testleri yazdim sonra implement ettim
 class TestGetItemCount(unittest.TestCase):
 
@@ -95,6 +97,7 @@ class TestGetItemCount(unittest.TestCase):
         self.cart.add_item("Mouse", 25.0, 3)
         self.cart.remove_item("Keyboard")
         self.assertEqual(self.cart.get_item_count(), 3)
+
 
 if __name__ == "__main__":
     unittest.main()
