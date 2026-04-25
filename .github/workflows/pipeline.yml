@@ -43,4 +43,8 @@ jobs:
         env:
           RENDER_DEPLOY_HOOK: ${{ secrets.RENDER_DEPLOY_HOOK }}
         run: |
-          curl -X POST "$RENDER_DEPLOY_HOOK"
+          if [ -z "$RENDER_DEPLOY_HOOK" ]; then
+            echo "Error: RENDER_DEPLOY_HOOK is not set"
+            exit 1
+          fi
+          curl -sS --fail -X POST "${RENDER_DEPLOY_HOOK}"
